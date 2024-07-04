@@ -1,0 +1,33 @@
+// The program makes sure the DNA strand starts with "ATG", ends with "TGA", and is divisible by 3
+
+public class DNA {
+
+  public static void atgCheck (String dna) {
+    int atg = dna.indexOf("ATG");
+    int tga = dna.indexOf("TGA");
+    int difference = tga - atg;
+
+    if ((dna.startsWith("ATG")) && (dna.endsWith("TGA")) && (difference % 3 == 0)) {
+      System.out.println("Contains protein in the correct sequence!");
+    } else {
+      System.out.println("Does not contain protein!");
+    }
+    
+  }
+
+  public static void main (String[] args) {
+    String dna1 = "ATGCGATACGCTTGA";
+    String dna2 = "ATGCGATACGTGA";
+    String dna3 = "ATTAATATGTACTGA";
+    
+    atgCheck(dna1);
+    atgCheck(dna2);
+    atgCheck(dna3);
+
+    
+
+   
+    
+
+  }
+}
