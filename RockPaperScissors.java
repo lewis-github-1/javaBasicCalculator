@@ -9,7 +9,8 @@ public class RockPaperScissors {
         Scanner userChoice = new Scanner(System.in); 
 
         // Initialize counters
-        int wins = 0, losses = 0, ties = 0;
+        int wins = 0, losses = 0, ties = 0, totalPlayed = 0;
+        float winPerc = 0, lossPerc = 0, tiePerc = 0;
         
         while (true) {
             // Creates random number
@@ -54,22 +55,30 @@ public class RockPaperScissors {
             } else if (choice == 3 && computerNumber == 2) {
                 System.out.println("Scissors cut paper. You win!");
                 wins++;
-            } 
-            System.out.println("Wins: " + wins + " Losses: " + losses + " Ties: " + ties);
+            }
+            // Add to total counter
+            totalPlayed++; 
+
+            // Percentage math
+            winPerc = (((float)wins / (float)totalPlayed) * 100);
+            lossPerc = (((float)losses / (float)totalPlayed) * 100);
+            tiePerc = (((float)ties / (float)totalPlayed) * 100);
+
+            // Output
+            System.out.printf("Wins: %d Losses: %d Ties: %d \n", wins, losses, ties);
+            System.out.printf("Wins: %.2f Losses: %.2f  Ties: %.2f \n", winPerc, lossPerc, tiePerc);
                                 
         }
 
         // Closes Scanner
         userChoice.close();
-
-
-        
+       
     }
 }
 
 
 // Todo list:
 // Make the output telling who won clearer
-// Add percentages
+
 
 
